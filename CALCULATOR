@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+
+namespace Villanueva
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<double> results = new List<double>(); 
+
+            string calcu = string.Empty;
+            string value = string.Empty;
+
+            do
+            {
+                Console.WriteLine("Please Input a Number:");
+                double number1 = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Input a Number:");
+                double number2 = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Choose an Operations:");
+                Console.WriteLine("1. Addition");
+                Console.WriteLine("2. Subtraction");
+                Console.WriteLine("3. Multiplication");
+                Console.WriteLine("4. Division");
+                double number = Convert.ToDouble(Console.ReadLine());
+                switch (number)
+                {
+                    case 1:
+                        double sum = Add(number1, number2);
+                        results.Add(sum); 
+                        Console.WriteLine("The Sum of " + number1 + " and " + number2 + " is " + sum);
+                        break;
+                    case 2:
+                        double diff = Minus(number1, number2);
+                        results.Add(diff); 
+                        Console.WriteLine("The Difference of " + number1 + " and " + number2 + " is " + diff);
+                        break;
+                    case 3:
+                        double prod = Multiply(number1, number2);
+                        results.Add(prod); 
+                        Console.WriteLine("The Product of " + number1 + " and " + number2 + " is " + prod);
+                        break;
+                    case 4:
+                        double quotient = Divide(number1, number2);
+                        results.Add(quotient); 
+                        Console.WriteLine("The Quotient of " + number1 + " and " + number2 + " is " + quotient);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                        break;
+                }
+
+                Console.Write("Do you want to use the calculator again? Y or N ");
+                value = Console.ReadLine();
+            }
+            while (value == "y" || value == "Y");
+
+            Console.WriteLine("Thank you for using the Calculator!!");
+            Console.WriteLine("List of Results:");
+            foreach (double result in results)
+            {
+                Console.WriteLine(result);
+            }
+            return;
+        }
+
+        public static double Add(double number1, double number2)
+        {
+            return number1 + number2;
+        }
+        public static double Minus(double number1, double number2)
+        {
+            return number1 - number2;
+        }
+        public static double Multiply(double number1, double number2)
+        {
+            return number1 * number2;
+        }
+        public static double Divide(double number1, double number2)
+        {
+            return number1 / number2;
+        }
+    }
+}
